@@ -40,6 +40,12 @@ RUN mkdir /swig-build && cd /swig-build && \
 #Cocotb install
 RUN pip3 install cocotb
 
+#Need numpy
+RUN pip3 install numpy
+
+#Dump package, superset of pickle
+RUN pip3 install dill
+
 ARG REPO=https://github.com/verilator/verilator
 
 #Last stable tag on 9/30/2020
