@@ -13,6 +13,7 @@ USER root:root
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive \
     && apt-get install --no-install-recommends -y \
+                        emacs vim \
                         make gcc g++ \
                         autoconf \
                         bc \
@@ -69,6 +70,11 @@ RUN git clone "${REPO}" verilator && \
     rm -r verilator
 
 WORKDIR /work
+
+#Set environment variables
+ENV COCOTB_REDUCED_LOG_FMT 1
+ENV SIM verilator
+ENV NO_COLOR 1
 
 ENTRYPOINT ["/bin/bash"]
 
