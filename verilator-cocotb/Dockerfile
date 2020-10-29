@@ -47,6 +47,9 @@ RUN pip3 install numpy
 #Dump package, superset of pickle
 RUN pip3 install dill
 
+#Install pyTorch
+RUN pip3 install torch torchvision
+
 ARG REPO=https://github.com/verilator/verilator
 
 #Last stable tag on 9/30/2020
