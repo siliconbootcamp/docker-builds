@@ -17,6 +17,7 @@ RUN apt-get update \
     libmpc-dev libmpfr-dev libgmp-dev gawk \
     build-essential bison flex texinfo gperf \
     libtool patchutils bc zlib1g-dev libexpat-dev \
+    bsdmainutils \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -30,14 +31,9 @@ RUN git clone https://github.com/riscv/riscv-gnu-toolchain \
     && mkdir build \
     && cd build \
     &&  ../configure --prefix=/opt/riscv32 --with-arch=rv32im --with-abi=ilp32 \
-    && make
-
-RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive \
-    &&  apt-get install --no-install-recommends -y \
-    bsdmainutils \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && make \
+    && cd /tmp \
+    && rm -rf riscv-gnu-toolchain
 
 WORKDIR /work
 
