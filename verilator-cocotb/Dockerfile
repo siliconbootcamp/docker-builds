@@ -53,9 +53,9 @@ RUN pip3 install torch torchvision
 ARG REPO=https://github.com/verilator/verilator
 
 #Last stable tag on 9/30/2020
-ARG SOURCE_COMMIT=v4.100
+#ARG SOURCE_COMMIT=v4.100
 
-#ARG SOURCE_COMMIT=master
+ARG SOURCE_COMMIT=stable
 
 WORKDIR /tmp
 
